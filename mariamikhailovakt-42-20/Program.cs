@@ -2,6 +2,8 @@ using NLog.Web;
 using NLog;
 using mariamikhailovakt_42_20.Database;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
+using mariamikhailovakt_42_20.ServiceInterfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,9 @@ try
 
     builder.Services.AddDbContext<StudentDbContext>(options =>
        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+    builder.Services.AddServices();
+
 
     var app = builder.Build();
 

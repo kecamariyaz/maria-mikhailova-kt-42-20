@@ -64,7 +64,7 @@ namespace mariamikhailovakt_42_20.DataBase.Configuration
 
             //lessons
             builder.Property(p => p.LessonsId)
-                .HasColumnName("lessons_id")
+                .HasColumnName("lesson_id")
                 .HasComment("Индетификатор предмета")
                 .HasColumnType(ColumnType.Int);
 

@@ -22,7 +22,7 @@ namespace mariamikhailovakt_42_20.DataBase.Configurations
 
             //Расписываем как будут называться колонки в БД, а так же их обязательность и тд
             builder.Property(p => p.LessonsId)
-                .HasColumnName("degree_id")
+                .HasColumnName("lesson_id")
                 .HasComment("Идентификатор записи предмета");
 
             //HasComment добавит комментарий, который будет отображаться в СУБД (добавлять по желанию)

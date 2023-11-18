@@ -11,7 +11,7 @@ using mariamikhailovakt_42_20.Database;
 namespace mariamikhailovakt_42_20.Migrations
 {
     [DbContext(typeof(StudentDbContext))]
-    [Migration("20231118195208_CreateDatabase")]
+    [Migration("20231118221657_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -52,7 +52,7 @@ namespace mariamikhailovakt_42_20.Migrations
                     b.Property<int>("LessonsId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("degree_id")
+                        .HasColumnName("lesson_id")
                         .HasComment("Идентификатор записи предмета");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("LessonsId"));
@@ -101,7 +101,7 @@ namespace mariamikhailovakt_42_20.Migrations
 
                     b.Property<int>("LessonsId")
                         .HasColumnType("int4")
-                        .HasColumnName("lessons_id")
+                        .HasColumnName("lesson_id")
                         .HasComment("Индетификатор предмета");
 
                     b.Property<string>("MiddleName")

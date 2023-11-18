@@ -28,13 +28,13 @@ namespace mariamikhailovakt_42_20.Migrations
                 name: "Lessons",
                 columns: table => new
                 {
-                    degree_id = table.Column<int>(type: "integer", nullable: false, comment: "Идентификатор записи предмета")
+                    lesson_id = table.Column<int>(type: "integer", nullable: false, comment: "Идентификатор записи предмета")
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     c_lessonname = table.Column<string>(type: "varchar", maxLength: 100, nullable: false, comment: "Название предмета")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("pk_cd_lessons_lessons_id", x => x.degree_id);
+                    table.PrimaryKey("pk_cd_lessons_lessons_id", x => x.lesson_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -47,7 +47,7 @@ namespace mariamikhailovakt_42_20.Migrations
                     c_student_lastname = table.Column<string>(type: "varchar", maxLength: 100, nullable: false, comment: "Фамилия студента"),
                     c_student_middlename = table.Column<string>(type: "varchar", maxLength: 100, nullable: false, comment: "Отчество студента"),
                     group_id = table.Column<int>(type: "int4", nullable: false, comment: "Индетификатор группы"),
-                    lessons_id = table.Column<int>(type: "int4", nullable: false, comment: "Индетификатор предмета")
+                    lesson_id = table.Column<int>(type: "int4", nullable: false, comment: "Индетификатор предмета")
                 },
                 constraints: table =>
                 {
@@ -60,9 +60,9 @@ namespace mariamikhailovakt_42_20.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "fk_c_lessons_id",
-                        column: x => x.lessons_id,
+                        column: x => x.lesson_id,
                         principalTable: "Lessons",
-                        principalColumn: "degree_id",
+                        principalColumn: "lesson_id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -74,7 +74,7 @@ namespace mariamikhailovakt_42_20.Migrations
             migrationBuilder.CreateIndex(
                 name: "idx_cd_student_fk_c_lessons_id",
                 table: "cd_student",
-                column: "lessons_id");
+                column: "lesson_id");
         }
 
         /// <inheritdoc />

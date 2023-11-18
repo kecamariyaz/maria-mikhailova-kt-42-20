@@ -49,7 +49,7 @@ namespace mariamikhailovakt_42_20.Migrations
                     b.Property<int>("LessonsId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("degree_id")
+                        .HasColumnName("lesson_id")
                         .HasComment("Идентификатор записи предмета");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("LessonsId"));
@@ -98,7 +98,7 @@ namespace mariamikhailovakt_42_20.Migrations
 
                     b.Property<int>("LessonsId")
                         .HasColumnType("int4")
-                        .HasColumnName("lessons_id")
+                        .HasColumnName("lesson_id")
                         .HasComment("Индетификатор предмета");
 
                     b.Property<string>("MiddleName")
