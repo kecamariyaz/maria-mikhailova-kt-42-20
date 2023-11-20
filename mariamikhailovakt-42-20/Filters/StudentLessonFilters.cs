@@ -1,4 +1,4 @@
-﻿namespace mariamikhailovakt_42_20.Filters.PrepodDegreeFilters;
+﻿namespace mariamikhailovakt_42_20.Filters.StudentLessonFilters;
 
 public class StudentLessonFilter
 {

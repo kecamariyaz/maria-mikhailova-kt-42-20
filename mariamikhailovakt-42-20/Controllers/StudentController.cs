@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using mariamikhailovakt_42_20.Filters.PrepodKafedraFilters;
+using mariamikhailovakt_42_20.Filters.StudentGroupFilters;
 using mariamikhailovakt_42_20.Database;
 using Microsoft.EntityFrameworkCore;
 using mariamikhailovakt_42_20.Models;

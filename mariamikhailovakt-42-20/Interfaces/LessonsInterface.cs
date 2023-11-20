@@ -1,5 +1,5 @@
 ﻿using mariamikhailovakt_42_20.Database;
-using mariamikhailovakt_42_20.Filters.PrepodDegreeFilters;
+using mariamikhailovakt_42_20.Filters.StudentLessonFilters;
 using mariamikhailovakt_42_20.Models;
 using Microsoft.EntityFrameworkCore;
 

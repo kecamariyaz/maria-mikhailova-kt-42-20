@@ -3,7 +3,7 @@ using mariamikhailovakt_42_20.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using mariamikhailovakt_42_20.Filters.PrepodDegreeFilters;
+using mariamikhailovakt_42_20.Filters.StudentLessonFilters;
 using mariamikhailovakt_42_20.Interfaces;
 
 
