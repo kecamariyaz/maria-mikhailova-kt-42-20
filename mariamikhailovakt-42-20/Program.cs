@@ -4,7 +4,7 @@ using mariamikhailovakt_42_20.Database;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using mariamikhailovakt_42_20.ServiceInterfaces;
-
+using mariamikhailovakt_42_20.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
