@@ -1,5 +1,5 @@
 ﻿using mariamikhailovakt_42_20.Database;
-using mariamikhailovakt_42_20.Filters.StudentLessonFilters;
+using mariamikhailovakt_42_20.Filters;
 using mariamikhailovakt_42_20.Interfaces;
 using mariamikhailovakt_42_20.Models;
 using Microsoft.EntityFrameworkCore;
@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace mariamikhailovakt_42_20.Tests
 {
-    public class StudentLessonIntegrationTests
+    public class StudentFIOIntegrationTests
     {
         public readonly DbContextOptions<StudentDbContext> _dbContextOptions;
 
-        public StudentLessonIntegrationTests()
+        public StudentFIOIntegrationTests()
         {
             _dbContextOptions = new DbContextOptionsBuilder<StudentDbContext>()
             .UseInMemoryDatabase(databaseName: "stuent_db")
@@ -23,11 +23,10 @@ namespace mariamikhailovakt_42_20.Tests
         }
 
         [Fact]
-        public async Task GetStudentsByLessonAsync_KT4220_TwoObjects()
+        public async Task GetStudentsByFIOAsync_KT4220_ThreeObjects()
         {
             // Arrange
             var ctx = new StudentDbContext(_dbContextOptions);
-            var lessonService = new LessonService(ctx);
             var studentService = new StudentService(ctx);
             var group = new List<Group>
             {
@@ -67,7 +66,7 @@ namespace mariamikhailovakt_42_20.Tests
             {
                 new Student
                 {
-                    FirstName = "123",
+                    FirstName = "Ivan",
                     LastName = "123",
                     MiddleName = "123",
                     GroupId = 1,
@@ -75,7 +74,7 @@ namespace mariamikhailovakt_42_20.Tests
                 },
                 new Student
                 {
-                    FirstName = "mem",
+                    FirstName = "Ivan",
                     LastName = "mem",
                     MiddleName = "mem",
                     GroupId = 1,
@@ -85,7 +84,7 @@ namespace mariamikhailovakt_42_20.Tests
                 {
                     FirstName = "mem1",
                     LastName = "mem1",
-                    MiddleName = "mem1",
+                    MiddleName = "Ivan",
                     GroupId = 2,
                     LessonsId = 2
                 }
@@ -95,11 +94,12 @@ namespace mariamikhailovakt_42_20.Tests
             await ctx.SaveChangesAsync();
 
             // Act
-            var filter = new StudentLessonFilter
+            var filter = new StudentFIOFilter
             {
-                LessonName = "физика"
+                FirstName = "Ivan",
+                
             };
-            var studentsResult = await lessonService.GetStudentsByLessonAsync(filter, CancellationToken.None);
+            var studentsResult = await studentService.GetStudentsByFIOAsync(filter, CancellationToken.None);
 
             Assert.Equal(2, studentsResult.Length);
         }
