@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using mariamikhailovakt_42_20.Filters.StudentGroupFilters;
-using mariamikhailovakt_42_20.Filters;
 using mariamikhailovakt_42_20.Database;
 using Microsoft.EntityFrameworkCore;
 using mariamikhailovakt_42_20.Models;
@@ -24,17 +23,10 @@ namespace mariamikhailovakt_42_20.Controllers
             _context = context;
         }
 
-        [HttpPost("GetStudentsByGroup")]
+        [HttpPost(Name = "GetStudentsByGroup")]
         public async Task<IActionResult> GetStudentsByGroupAsync(StudentGroupFilter filter, CancellationToken cancellationToken = default)
         {
             var student = await _studentService.GetStudentsByGroupAsync(filter, cancellationToken);
-
-            return Ok(student);
-        }
-        [HttpPost("GetStudentsByFIO")]
-        public async Task<IActionResult> GetStudentsByFIOAsync(StudentFIOFilter filter, CancellationToken cancellationToken = default)
-        {
-            var student = await _studentService.GetStudentsByFIOAsync(filter, cancellationToken);
 
             return Ok(student);
         }
